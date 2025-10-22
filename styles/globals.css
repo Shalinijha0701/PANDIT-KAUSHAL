@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    --primary1: #FF6B35;
+    --primary2: #F7931E;
+    --gold: #D4AF37;
+    --chakra-border: 8px;
+    --chakra-glow: 0 0 60px rgba(212, 175, 55, 0.6);
+    --chakra-glow-secondary: 0 0 150px rgba(255, 107, 53, 0.25);
+  }
+}
+
+body {
+  @apply bg-[#FFF8E7] text-[#333333] font-body;
+}
+
+.chakra-main {
+  width: 600px;
+  height: 600px;
+  animation: rotateChakra 12s linear infinite;
+  perspective: 1000px;
+  border-radius: 9999px;
+  border: 8px solid var(--gold);
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.6), 0 0 150px rgba(255, 107, 53, 0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chakra-spoke {
+  position: absolute;
+  width: 6px;
+  height: 180px;
+  left: 50%;
+  top: 50%;
+  transform-origin: 50% -120px;
+  background: linear-gradient(180deg, var(--gold), var(--primary1));
+  opacity: 0.95;
+}
+
+.chakra-center {
+  width: 80px;
+  height: 80px;
+  background: var(--gold);
+  border-radius: 9999px;
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.9);
+}
+
+@keyframes rotateChakra {
+  from {
+    transform: rotate(0deg) rotateX(60deg);
+  }
+
+  to {
+    transform: rotate(360deg) rotateX(60deg);
+  }
+}
+
+.chakra-secondary {
+  width: 300px;
+  opacity: 0.5;
+  position: absolute;
+  animation: rotateChakraReverse 8s linear infinite;
+}
+
+@keyframes rotateChakraReverse {
+  from {
+    transform: rotate(0deg) rotateX(60deg);
+  }
+
+  to {
+    transform: rotate(-360deg) rotateX(60deg);
+  }
+}
+
+.deity-ganesha {
+  position: absolute;
+  z-index: 2;
+  width: 320px;
+  animation: deityFloat 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 32px rgba(212, 175, 55, 0.9));
+}
+
+@keyframes deityFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.particle {
+  position: absolute;
+  opacity: 0.2;
+  animation: particleFloat 8s ease-out infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+/* Performance & accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .chakra-main,
+  .chakra-secondary,
+  .deity-ganesha,
+  .particle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .chakra-main {
+    width: 320px;
+    height: 320px;
+  }
+
+  .deity-ganesha {
+    width: 180px;
+  }
+}
