@@ -60,9 +60,9 @@ const particleVariants: Variants = {
 export default function ChakraHero() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="chakra-container">
-        <div className="chakra-outer">
-          <div className="chakra-inner" />
+      <div className="chakra-container" style={{ width: '500px', height: '500px', borderRadius: '50%' }}>
+        <div className="chakra-outer" style={{ width: '100%', height: '100%', borderRadius: '50%' }}>
+          <div className="chakra-inner" style={{ borderRadius: '50%' }} />
 
           <div className="chakra-main" aria-hidden>
             <div className="glow-layer-1" />
