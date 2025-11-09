@@ -30,12 +30,10 @@ const particles: Particle[] = [
 ];
 
 const deityAnimation: Variants = {
-  initial: { y: 0, opacity: 0 },
+  initial: { opacity: 0 },
   animate: {
-    y: [-10, 0, -10],
     opacity: 1,
     transition: {
-      y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
       opacity: { duration: 1.5, ease: 'easeOut' }
     }
   }
