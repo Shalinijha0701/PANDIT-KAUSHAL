@@ -91,7 +91,6 @@ export default function ChakraHero() {
                 initial="initial"
                 animate="animate"
                 style={{
-                  transform: 'perspective(1000px) rotateX(15deg) rotateY(0deg)',
                   transformStyle: 'preserve-3d'
                 }}
               >
