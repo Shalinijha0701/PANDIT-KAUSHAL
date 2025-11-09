@@ -98,6 +98,92 @@ body {
     animation: deityFloat 6s ease-in-out infinite;
     filter: drop-shadow(0 0 32px rgba(212, 175, 55, 0.9));
   }
+
+  .ganesha-3d-container {
+    position: absolute;
+    z-index: 10;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+  }
+
+  .ganesha-glow-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, rgba(255, 107, 53, 0.2) 50%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 4s ease-in-out infinite;
+    transform: translateZ(-20px);
+  }
+
+  .ganesha-3d-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+
+  .deity-ganesha-3d {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateZ(30px);
+    width: 280px;
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+
+  .deity-ganesha-3d:hover {
+    transform: translate(-50%, -50%) translateZ(50px) scale(1.05);
+  }
+
+  .sacred-geometry {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateZ(-10px);
+    pointer-events: none;
+  }
+
+  .geometry-svg {
+    animation: geometryRotate 20s linear infinite;
+  }
+
+  .holographic-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      transparent 30%, 
+      rgba(255, 255, 255, 0.1) 50%, 
+      transparent 70%
+    );
+    animation: holographicSweep 6s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.6; transform: translateZ(-20px) scale(1); }
+    50% { opacity: 1; transform: translateZ(-20px) scale(1.1); }
+  }
+
+  @keyframes geometryPulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+
+  @keyframes geometryRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes holographicSweep {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
 }
 
 @keyframes deityFloat {

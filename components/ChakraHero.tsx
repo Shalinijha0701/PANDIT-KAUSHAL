@@ -79,14 +79,94 @@ export default function ChakraHero() {
 
             <div className="chakra-center" />
 
-            <MotionImg
-              src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/edd6017f-b708-46a2-97ff-22965744932f.png"
-              alt="Ganesha artwork"
-              className="deity-ganesha"
-              variants={deityAnimation}
-              initial="initial"
-              animate="animate"
-            />
+            {/* Advanced 3D Ganesha with multiple layers */}
+            <div className="ganesha-3d-container">
+              {/* Background glow layer */}
+              <div className="ganesha-glow-bg"></div>
+              
+              {/* Main Ganesha with 3D transform */}
+              <MotionDiv
+                className="ganesha-3d-main"
+                variants={deityAnimation}
+                initial="initial"
+                animate="animate"
+                style={{
+                  transform: 'perspective(1000px) rotateX(15deg) rotateY(0deg)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                <MotionImg
+                  src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/edd6017f-b708-46a2-97ff-22965744932f.png"
+                  alt="Ganesha artwork"
+                  className="deity-ganesha-3d"
+                  style={{
+                    filter: 'drop-shadow(0 20px 40px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 60px rgba(255, 107, 53, 0.4))',
+                    transform: 'translateZ(50px)'
+                  }}
+                />
+                
+                {/* Floating particles around Ganesha */}
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <MotionDiv
+                    key={i}
+                    className="ganesha-particle"
+                    style={{
+                      position: 'absolute',
+                      width: '12px',
+                      height: '12px',
+                      background: 'radial-gradient(circle, #FFD700, #FF6B35)',
+                      borderRadius: '50%',
+                      left: `${20 + i * 45}%`,
+                      top: `${30 + (i % 3) * 20}%`,
+                      transform: `translateZ(${20 + i * 10}px)`
+                    }}
+                    animate={{
+                      y: [-10, 10, -10],
+                      opacity: [0.3, 1, 0.3],
+                      scale: [0.8, 1.2, 0.8]
+                    }}
+                    transition={{
+                      duration: 3 + i * 0.5,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: i * 0.3
+                    }}
+                  />
+                ))}
+                
+                {/* Sacred geometry overlay */}
+                <div className="sacred-geometry">
+                  <svg width="400" height="400" className="geometry-svg">
+                    <defs>
+                      <radialGradient id="sacredGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#FFD700" stopOpacity="0.1" />
+                        <stop offset="100%" stopColor="#FF6B35" stopOpacity="0.3" />
+                      </radialGradient>
+                    </defs>
+                    {/* Flower of Life pattern */}
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <circle
+                        key={i}
+                        cx="200"
+                        cy="200"
+                        r={60 + i * 15}
+                        fill="none"
+                        stroke="url(#sacredGrad)"
+                        strokeWidth="2"
+                        opacity={0.4 - i * 0.05}
+                        style={{
+                          animation: `geometryPulse ${4 + i}s ease-in-out infinite`,
+                          animationDelay: `${i * 0.5}s`
+                        }}
+                      />
+                    ))}
+                  </svg>
+                </div>
+              </MotionDiv>
+              
+              {/* Holographic effect overlay */}
+              <div className="holographic-overlay"></div>
+            </div>
 
             <div className="chakra-secondary" style={{ left: '10%', top: '10%' }}>
               {/* Secondary chakra with counter-rotation */}
