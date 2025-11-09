@@ -185,11 +185,11 @@ export default function TestimonialsCarousel() {
           viewport={{ once: true }}
         >
           <div className="bg-white/60 backdrop-blur-md p-6 rounded-lg">
-            <div className="text-3xl font-bold text-primary1 mb-2">500+</div>
+            <div className="text-3xl font-bold text-primary1 mb-2">15000+</div>
             <div className="text-gray-600">Happy Families</div>
           </div>
           <div className="bg-white/60 backdrop-blur-md p-6 rounded-lg">
-            <div className="text-3xl font-bold text-primary1 mb-2">15+</div>
+            <div className="text-3xl font-bold text-primary1 mb-2">35+</div>
             <div className="text-gray-600">Years Experience</div>
           </div>
           <div className="bg-white/60 backdrop-blur-md p-6 rounded-lg">
