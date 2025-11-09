@@ -30,11 +30,11 @@ body {
 
 @layer components {
   .chakra-main {
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     animation: rotateChakra 12s linear infinite;
     perspective: 1000px;
-    border-radius: 9999px;
+    border-radius: 50%;
     border: 8px solid var(--gold);
     box-shadow: var(--chakra-glow), var(--chakra-glow-secondary);
     position: relative;
@@ -152,11 +152,11 @@ body {
 
 @media (max-width: 768px) {
   .chakra-main {
-    width: 320px;
-    height: 320px;
+    width: 300px;
+    height: 300px;
   }
 
   .deity-ganesha {
-    width: 180px;
+    width: 160px;
   }
 }
